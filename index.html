@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salsas Origen Capital | El Sabor que Lidera</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuentes: 'Oswald' para títulos fuertes (Capital) y 'Montserrat' para texto -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'capital-black': '#050505',      /* Negro ultra profundo */
+                        'capital-gray': '#1c1c1c',
+                        'capital-gold': '#eebc1d',       /* Oro más vibrante */
+                        'capital-copper': '#b87333',     
+                    },
+                    fontFamily: {
+                        'body': ['Montserrat', 'sans-serif'],
+                        'heading': ['Oswald', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 15px rgba(238, 188, 29, 0.3)',
+                        'card-hover': '0 20px 40px -5px rgba(238, 188, 29, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #e5e5e5;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        
+        /* Efecto de Vidrio para el Menú */
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.95);
+            border-bottom: 1px solid rgba(238, 188, 29, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Texto Dorado Brillante Mejorado */
+        .gold-text {
+            background: linear-gradient(to right, #eebc1d, #fff8db, #eebc1d, #b87333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 300% auto;
+            animation: metalShine 4s linear infinite;
+            text-shadow: 0 0 20px rgba(238, 188, 29, 0.2);
+        }
+
+        @keyframes metalShine {
+            to { background-position: 300% center; }
+        }
+
+        /* Tarjetas de Producto con más impacto */
+        .product-card {
+            background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #eebc1d;
+            box-shadow: 0 0 25px rgba(238, 188, 29, 0.2);
+        }
+
+        /* Botones Premium */
+        .btn-capital {
+            background: linear-gradient(90deg, #eebc1d, #d4af37);
+            color: #000;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 2px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-capital::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-capital:hover::after {
+            left: 100%;
+        }
+
+        .btn-capital:hover {
+            box-shadow: 0 0 20px rgba(238, 188, 29, 0.6);
+            transform: scale(1.02);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            border-color: #eebc1d;
+            color: #eebc1d;
+            box-shadow: 0 0 15px rgba(238, 188, 29, 0.2);
+        }
+
+        /* Animación de entrada */
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 glass-nav" id="navbar">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex flex-col cursor-pointer group" onclick="window.scrollTo(0,0)">
+                    <div class="text-3xl font-bold tracking-widest text-white brand-font leading-none group-hover:scale-105 transition duration-300">
+                        ORIGEN <span class="text-capital-gold drop-shadow-md">CAPITAL</span>
+                    </div>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex space-x-12 items-center">
+                    <a href="#inicio" class="text-sm font-bold text-gray-300 hover:text-capital-gold transition uppercase tracking-[0.2em]">Inicio</a>
+                    <a href="#concepto" class="text-sm font-bold text-gray-300 hover:text-capital-gold transition uppercase tracking-[0.2em]">Concepto</a>
+                    <a href="#catalogo" class="text-sm font-bold text-gray-300 hover:text-capital-gold transition uppercase tracking-[0.2em]">Catálogo</a>
+                    
+                    <button class="relative group">
+                        <i class="fa-solid fa-cart-shopping text-xl text-capital-gold transition group-hover:text-white group-hover:scale-110 duration-300"></i>
+                        <span id="cart-badge" class="absolute -top-3 -right-3 bg-red-600 text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center opacity-0 transition-opacity border border-black shadow-lg">0</span>
+                    </button>
+                </div>
+                
+                <!-- Botón Móvil -->
+                <button id="mobile-btn" class="md:hidden text-capital-gold text-2xl"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden bg-black border-t border-gray-800 md:hidden p-6 space-y-6 fixed w-full z-40">
+            <a href="#inicio" class="block text-gray-300 hover:text-capital-gold uppercase font-bold text-lg tracking-wider">Inicio</a>
+            <a href="#concepto" class="block text-gray-300 hover:text-capital-gold uppercase font-bold text-lg tracking-wider">Concepto</a>
+            <a href="#catalogo" class="block text-gray-300 hover:text-capital-gold uppercase font-bold text-lg tracking-wider">Catálogo</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden bg-capital-black">
+        <!-- Fondo Dinámico -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-900 via-black to-black opacity-80 z-0"></div>
+        
+        <!-- Patrón de puntos sutil -->
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#eebc1d 1.5px, transparent 1.5px); background-size: 40px 40px;"></div>
+        
+        <div class="relative z-20 text-center px-4 max-w-6xl">
+            <div class="inline-block border border-capital-gold/50 bg-black/50 backdrop-blur-sm px-6 py-2 mb-8 rounded-sm fade-in">
+                <span class="text-capital-gold text-xs font-bold tracking-[0.5em] uppercase">Edición Urbana Limitada</span>
+            </div>
+            <h1 class="text-7xl md:text-9xl font-bold text-white mb-8 leading-[0.9] fade-in delay-1 tracking-tighter">
+                EL SABOR <br>QUE <span class="gold-text">LIDERA</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-2xl mb-12 max-w-3xl mx-auto font-light fade-in delay-2 tracking-wide">
+                Alta cocina portátil. Sin derrames. Sin compromisos. <br>
+                <span class="text-white font-medium">Solo para quienes exigen lo mejor.</span>
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in delay-3">
+                <a href="#catalogo" class="btn-capital py-5 px-16 text-sm uppercase rounded-sm shadow-gold-glow">
+                    Ver Colección
+                </a>
+                <button class="btn-outline text-white py-5 px-16 text-sm font-bold uppercase tracking-widest rounded-sm">
+                    Suscripción VIP
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concepto (MATERIALES y SUSTITUCIÓN) -->
+    <section id="concepto" class="py-32 bg-capital-black relative border-t border-gray-900 overflow-hidden">
+        <!-- Luz ambiental de fondo -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-capital-gold/5 to-transparent pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-5xl md:text-7xl font-bold text-white mb-8 leading-none">EVOLUCIÓN <br><span class="text-capital-gold">&</span> MATERIALES</h2>
+            <div class="h-1.5 w-32 bg-gradient-to-r from-capital-gold to-transparent mb-12 mx-auto"></div>
+            
+            <p class="text-gray-300 mb-16 leading-relaxed text-xl font-light max-w-3xl mx-auto">
+                Hemos dejado atrás lo impráctico. Estamos sustituyendo activamente los frascos de vidrio derramables por 
+                <strong class="text-white brand-font text-2xl block mt-2">Bolsas Squeeze Herméticas.</strong>
+            </p>
+
+            <!-- Comparativa -->
+            <div class="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
+                <!-- El Problema (Frascos) -->
+                <div class="bg-[#0f0f0f] p-10 rounded-sm border border-gray-800 hover:border-red-900 transition group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition">
+                        <i class="fa-solid fa-xmark text-6xl text-red-800"></i>
+                    </div>
+                    <div class="flex items-center mb-4 relative z-10">
+                        <i class="fa-solid fa-glass-water text-gray-600 text-3xl mr-4 group-hover:text-red-500 transition"></i>
+                        <h4 class="text-gray-500 font-bold uppercase text-2xl decoration-red-500/50 line-through decoration-2">Frascos de Vidrio</h4>
+                    </div>
+                    <p class="text-gray-600 text-sm relative z-10">Materiales obsoletos para la vida moderna. Pesados, frágiles y con alto riesgo de derrames en tu bolso o mochila.</p>
+                </div>
+
+                <!-- La Solución (Squeeze) -->
+                <div class="bg-[#161616] p-10 rounded-sm border border-capital-gold shadow-gold-glow group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition">
+                        <i class="fa-solid fa-check text-6xl text-capital-gold"></i>
+                    </div>
+                    <div class="flex items-center mb-4 relative z-10">
+                        <i class="fa-solid fa-bag-shopping text-capital-gold text-3xl mr-4 animate-pulse"></i>
+                        <h4 class="text-white font-bold uppercase text-2xl">Bolsas Squeeze</h4>
+                    </div>
+                    <p class="text-gray-400 text-sm relative z-10">Materiales flexibles de alta tecnología. Ligeros, irrompibles y 100% herméticos para un transporte sin preocupaciones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo -->
+    <section id="catalogo" class="py-32 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 border-b border-gray-900 pb-8">
+                <div>
+                    <span class="text-capital-gold font-bold tracking-[0.3em] text-xs uppercase mb-2 block">Catálogo 2025</span>
+                    <h2 class="text-5xl md:text-7xl font-bold text-white">BLACK EDITION</h2>
+                </div>
+                <div class="flex gap-4 mt-8 md:mt-0">
+                    <button class="px-6 py-3 text-xs font-bold uppercase text-black bg-capital-gold rounded-sm shadow-gold-glow">Todo</button>
+                    <button class="px-6 py-3 text-xs font-bold uppercase text-gray-400 hover:text-white border border-gray-800 hover:border-capital-gold rounded-sm transition">Salsas</button>
+                    <button class="px-6 py-3 text-xs font-bold uppercase text-gray-400 hover:text-white border border-gray-800 hover:border-capital-gold rounded-sm transition">Secos</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- PRODUCTO 1: 15ml -->
+                <div class="product-card p-8 rounded-sm group relative flex flex-col justify-between h-full">
+                    <div>
+                        <div class="h-64 bg-[#0a0a0a] mb-8 flex flex-col items-center justify-center rounded-sm border border-gray-800 group-hover:border-gray-700 transition relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-capital-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                            <i class="fa-solid fa-droplet text-6xl text-gray-800 group-hover:text-capital-gold transition duration-500 transform group-hover:scale-110 z-10"></i>
+                            <span class="text-gray-600 text-xs mt-6 uppercase tracking-[0.2em] z-10 font-bold">Shot 15ml</span>
+                        </div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl text-white font-bold uppercase leading-none">Capital Shot</h3>
+                            <span class="text-capital-gold font-bold text-xl">$18</span>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-8 font-light">Dosis individual perfecta. Boquilla de precisión para cero desperdicio.</p>
+                    </div>
+                    <button onclick="addToCart()" class="w-full border border-gray-700 text-gray-300 hover:border-capital-gold hover:text-black hover:bg-capital-gold uppercase text-xs font-bold py-4 tracking-[0.2em] transition duration-300">
+                        Añadir
+                    </button>
+                </div>
+
+                <!-- PRODUCTO 2: 100ml (Destacado) -->
+                <div class="product-card p-8 rounded-sm border-capital-gold/40 group relative transform md:-translate-y-8 z-10 bg-[#121212] flex flex-col justify-between h-full shadow-2xl">
+                    <div class="absolute top-0 right-0 bg-capital-gold text-black text-[10px] font-bold px-4 py-1.5 uppercase tracking-wider">Best Seller</div>
+                    <div>
+                        <div class="h-80 bg-[#080808] mb-8 flex flex-col items-center justify-center rounded-sm border border-gray-800 group-hover:border-capital-gold/30 transition relative overflow-hidden">
+                            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-capital-gold/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-700"></div>
+                            <i class="fa-solid fa-bottle-droplet text-7xl text-gray-600 group-hover:text-capital-gold transition duration-500 transform group-hover:scale-110 z-10"></i>
+                            <span class="text-gray-500 text-xs mt-6 uppercase tracking-[0.2em] z-10 font-bold">Squeeze 100ml</span>
+                        </div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-3xl text-white font-bold uppercase leading-none">Squeeze Personal</h3>
+                            <span class="text-capital-gold font-bold text-3xl">$85</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-8 font-light">Tu esencial diario. Válvula de silicón anti-goteo y acabado soft-touch.</p>
+                    </div>
+                    <button onclick="addToCart()" class="w-full btn-capital uppercase text-sm font-bold py-4 tracking-[0.2em]">
+                        Añadir al Carrito
+                    </button>
+                </div>
+
+                <!-- PRODUCTO 3: 250ml -->
+                <div class="product-card p-8 rounded-sm group relative flex flex-col justify-between h-full">
+                    <div>
+                        <div class="h-64 bg-[#0a0a0a] mb-8 flex flex-col items-center justify-center rounded-sm border border-gray-800 group-hover:border-gray-700 transition relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-capital-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                            <i class="fa-solid fa-jar text-6xl text-gray-800 group-hover:text-capital-gold transition duration-500 transform group-hover:scale-110 z-10"></i>
+                            <span class="text-gray-600 text-xs mt-6 uppercase tracking-[0.2em] z-10 font-bold">Frasco 250ml</span>
+                        </div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl text-white font-bold uppercase leading-none">Master Jar</h3>
+                            <span class="text-capital-gold font-bold text-xl">$150</span>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-8 font-light">Mezcla seca de chiles y especias selectas. El toque final gourmet.</p>
+                    </div>
+                    <button onclick="addToCart()" class="w-full border border-gray-700 text-gray-300 hover:border-capital-gold hover:text-black hover:bg-capital-gold uppercase text-xs font-bold py-4 tracking-[0.2em] transition duration-300">
+                        Añadir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-900 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-8 md:mb-0 text-center md:text-left">
+                <div class="text-3xl font-bold tracking-widest text-white brand-font leading-none mb-2">
+                    ORIGEN <span class="text-capital-gold">CAPITAL</span>
+                </div>
+                <p class="text-gray-600 text-[10px] tracking-[0.3em] uppercase">&copy; 2025 Salsas Origen Capital.</p>
+            </div>
+            <div class="flex gap-8">
+                <a href="#" class="text-gray-600 hover:text-capital-gold transition transform hover:scale-110"><i class="fa-brands fa-instagram text-2xl"></i></a>
+                <a href="#" class="text-gray-600 hover:text-capital-gold transition transform hover:scale-110"><i class="fa-brands fa-tiktok text-2xl"></i></a>
+                <a href="#" class="text-gray-600 hover:text-capital-gold transition transform hover:scale-110"><i class="fa-brands fa-whatsapp text-2xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Funcionalidad simple
+        let c
